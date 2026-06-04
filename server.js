@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DISCHUB_API_KEY = process.env.DISCHUB_API_KEY || '084978e58f844ea5aaee1960d4f997ba';
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
@@ -132,7 +132,7 @@ app.post('/api/payment/status', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {

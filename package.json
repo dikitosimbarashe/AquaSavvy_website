@@ -7,8 +7,8 @@
   },
   "scripts": {
     "build": "echo Build complete",
-    "start": "node dist/server.js",
-    "serve": "node dist/server.js",
+    "start": "node server.js",
+    "serve": "node server.js",
     "dev": "tsc --watch",
     "copy-demo-video": "node scripts/copyDemoVideo.js"
   },
