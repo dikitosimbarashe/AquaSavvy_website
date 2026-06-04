@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc && npm run build:client && npm run copy-assets",
     "build:client": "esbuild client.tsx --bundle --outfile=dist/bundle.js --external:express",
-    "copy-assets": "xcopy index.html dist\\ /Y && xcopy public dist\\public\\ /E /I /Y && xcopy server.js dist\\ /Y",
+    "copy-assets": "node scripts/copy-assets.js",
     "start": "node dist/server.js",
     "serve": "node dist/server.js",
     "dev": "tsc --watch",
