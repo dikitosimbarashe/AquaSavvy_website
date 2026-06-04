@@ -1,7 +1,7 @@
 {
   "name": "aquasavvy-website",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "tsc && npm run build:client && npm run copy-assets",
     "build:client": "esbuild client.tsx --bundle --outfile=dist/bundle.js --external:express",
