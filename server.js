@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DISCHUB_API_KEY = process.env.DISCHUB_API_KEY || '084978e58f844ea5aaee1960d4f997ba';
 
-app.use(express.static('dist'));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 const getApiKey = (req) => {
