@@ -6,7 +6,7 @@
     "node": "20"
   },
   "scripts": {
-    "build": "tsc && npm run build:client && npm run copy-assets",
+    "build": "npm run build:client && npm run copy-assets",
     "build:client": "esbuild client.tsx --bundle --outfile=dist/bundle.js --external:express",
     "copy-assets": "node scripts/copy-assets.js",
     "start": "node dist/server.js",
