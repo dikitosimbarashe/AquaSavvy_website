@@ -3,7 +3,6 @@ node_modules/
 functions/node_modules/
 
 # Build outputs
-dist/
 functions/lib/
 
 # Environment variables

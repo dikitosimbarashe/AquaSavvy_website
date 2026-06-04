@@ -1,0 +1,1 @@
+{"version":3,"file":"waterMetricsService.d.ts","sourceRoot":"","sources":["../../services/waterMetricsService.ts"],"names":[],"mappings":"AAaA,OAAO,EAAE,YAAY,EAAY,MAAM,uBAAuB,CAAC;AAI/D,eAAO,MAAM,mBAAmB;IAC9B;;OAEG;mCAC4B,CAAC,OAAO,EAAE,YAAY,GAAG,IAAI,KAAK,IAAI;IAcrE;;OAEG;sBACmB,OAAO,CAAC,YAAY,GAAG,IAAI,CAAC;IAMlD;;OAEG;gCAC+B,OAAO,CAAC,YAAY,CAAC;IAuCvD;;OAEG;;CA2BJ,CAAC"}
