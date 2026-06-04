@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "aquasavvy-zw"
+  },
+  "targets": {
+    "aquasavvy-zw": {
+      "hosting": {
+        "aquasavvy-zw": [
+          "aquasavvy-zw"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

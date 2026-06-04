@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && (
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'superAdmin'
+      );
+    }
+    
+    function isSuperAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'superAdmin';
+    }
+
+    // Water Metrics Rules
+    match /system_settings/water_metrics {
+      // Everyone (including homeowners) can read the standards
+      allow read: if isSignedIn();
+      
+      // Only SuperAdmin can modify water metrics
+      allow write: if isSuperAdmin();
+      
+      // Standard admins can read but not edit (already covered by allow read)
+    }
+
+    // Audit Logs Rules
+    match /admin_logs/{logId} {
+      // Only admins can read audit logs
+      allow read: if isAdmin();
+      
+      // Only the system or superAdmin can write logs (via transaction in our case)
+      // Since our frontend service does the write in a transaction, we need to allow write for SuperAdmin
+      allow create: if isSuperAdmin();
+      allow update, delete: if false; // Logs should be immutable
+    }
+
+    // Default rules for other collections (placeholder)
+    match /{document=**} {
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "aquasavvy-website",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && npm run build:client",
+    "build:client": "esbuild client.tsx --bundle --outfile=dist/bundle.js --external:express",
+    "start": "npm run build && node server.js",
+    "serve": "node server.js",
+    "dev": "tsc --watch",
+    "copy-demo-video": "node scripts/copyDemoVideo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "firebase": "^12.13.0",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.3.3"
+  }
+}
